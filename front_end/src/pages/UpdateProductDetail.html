@@ -1,0 +1,90 @@
+<div style="width: 500px;margin-left: 80px;">
+    <form>
+        <h4>Update ProductDetail</h4>
+        <div class="d-flex">
+            <div style="margin: 10px 0px 10px">
+                <label for="">Name &nbsp;</label>
+                <select ng-model="UpdateProductDetailRequest.productId" class="custom-select">
+                    <option ng-repeat="x in listProduct" value="{{x.id}}"
+                        ng-selected="x.productName == UpdateProductDetailRequest.productName">{{x.productName}}
+                    </option>
+                </select>
+            </div>
+
+            <div style="margin: 10px 0px 10px 20px">
+                <label for="">Style &nbsp;</label>
+                <select ng-model="UpdateProductDetailRequest.categoryId" class="custom-select">
+                    <option ng-repeat="x in listCategory" value="{{x.id}}"
+                        ng-selected="x.categoryName == UpdateProductDetailRequest.categoryName">{{x.categoryName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <hr class="sidebar-divider my-0">
+        <div class="d-flex">
+            <div style="margin: 10px 0px 10px">
+                <label for="">Size &nbsp;</label>
+                <select ng-model="UpdateProductDetailRequest.sizeId" class="custom-select">
+                    <option ng-repeat="x in listSize" value="{{x.id}}"
+                        ng-selected="x.sizeName == UpdateProductDetailRequest.sizeName">{{x.sizeName}}</option>
+                </select>
+            </div>
+            <div style="margin: 10px 30px">
+                <label for="">Color &nbsp;</label>
+                <select ng-model="UpdateProductDetailRequest.colorId" class="custom-select">
+                    <option ng-repeat="x in listColor" value="{{x.id}}"
+                        ng-selected="x.colorName == UpdateProductDetailRequest.colorName">{{x.colorName}}</option>
+                </select>
+            </div>
+
+            <div style="margin: 10px 30px 0px 0px">
+                <label for="">Material &nbsp;</label>
+                <select ng-model="UpdateProductDetailRequest.materialId" class="custom-select">
+                    <option ng-repeat="x in listMaterial" value="{{x.id}}"
+                        ng-selected="x.materialName == UpdateProductDetailRequest.materialName">{{x.materialName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <hr class="sidebar-divider my-0"> <br>
+
+        <label for="">Price:</label>
+        <input type="text" ng-model="UpdateProductDetailRequest.price" value="{{UpdateProductDetailRequest.price}}"
+            class="form-control">
+
+        <label for="">Quantity:</label>
+        <input type="text" ng-model="UpdateProductDetailRequest.quantity"
+            value="{{UpdateProductDetailRequest.quantity}}" class="form-control">
+
+        <label for="">Description:</label>
+        <input type="text" ng-model="UpdateProductDetailRequest.description"
+            value="{{UpdateProductDetailRequest.description}}" class="form-control"> <br>
+        <div class="d-flex">
+            <button type="button" class="btn btn-success"><a style="color: #ffffff;text-decoration: none;"
+                    href="#/manager/product-detail"><i class="fa-solid fa-reply"></i>back</a></button> &nbsp;
+            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success">Save</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Are you sure you
+                                want to update?
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button ng-click="updateProductDetail($event)" type="button" class="btn btn-danger"
+                                data-dismiss="modal">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+        </div>
+    </form>
+</div>

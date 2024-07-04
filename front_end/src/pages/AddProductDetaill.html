@@ -1,0 +1,83 @@
+<div style="width: 500px;margin-left: 80px;">
+    <form>
+        <h4>Add ProductDetail</h4>
+        <div class="d-flex">
+            <div style="margin: 10px 0px 10px">
+                <label for="">Name &nbsp;</label>
+                <select ng-model="AddProductDetailRequest.productId" class="custom-select">
+                    <option ng-repeat="x in listProduct" value="{{x.id}}">{{x.productName}}
+                    </option>
+                </select>
+            </div>
+
+            <div style="margin: 10px 0px 10px 20px">
+                <label for="">Style &nbsp;</label>
+                <select ng-model="AddProductDetailRequest.categoryId" class="custom-select">
+                    <option ng-repeat="x in listCategory" value="{{x.id}}">{{x.categoryName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <hr class="sidebar-divider my-0">
+        <div class="d-flex">
+            <div style="margin: 10px 0px 10px">
+                <label for="">Size &nbsp;</label>
+                <select ng-model="AddProductDetailRequest.sizeId" class="custom-select">
+                    <option ng-repeat="x in listSize" value="{{x.id}}">{{x.sizeName}}</option>
+                </select>
+            </div>
+            <div style="margin: 10px 30px">
+                <label for="">Color &nbsp;</label>
+                <select ng-model="AddProductDetailRequest.colorId" class="custom-select">
+                    <option ng-repeat="x in listColor" value="{{x.id}}">{{x.colorName}}</option>
+                </select>
+            </div>
+
+            <div style="margin: 10px 30px 0px 0px">
+                <label for="">Material &nbsp;</label>
+                <select ng-model="AddProductDetailRequest.materialId" class="custom-select">
+                    <option ng-repeat="x in listMaterial" value="{{x.id}}">{{x.materialName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <hr class="sidebar-divider my-0"> <br>
+
+        <label for="">Price:</label>
+        <input type="text" ng-model="AddProductDetailRequest.price" class="form-control">
+
+        <label for="">Quantity:</label>
+        <input type="text" ng-model="AddProductDetailRequest.quantity" class="form-control">
+
+        <label for="">Description:</label>
+        <input type="text" ng-model="AddProductDetailRequest.description" class="form-control"> <br>
+        <div class="d-flex">
+            <button type="reset" class="btn btn-success">
+                <a style="color: #ffffff;text-decoration: none;" href="#/manager/product-detail">
+                    <i class="fa-solid fa-reply"></i>back</a></button>
+            &nbsp;
+            <button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-success">Add</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Are you sure you
+                                want to add?
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button ng-click="addProductDetail($event)" type="button" class="btn btn-danger"
+                                data-dismiss="modal">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,93 @@
+<div class="card">
+    <div class="card-body">
+        <div class="container mb-5 mt-3">
+            <div class="row d-flex align-items-baseline">
+                <div class="col-xl-9">
+                    <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>Code:
+                            {{listBillDetail[0].code}}</strong></p>
+                </div>
+
+                <div class="col-xl-3 float-end">
+                    <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
+                            class="fas fa-print text-primary"></i> Print</a>
+                    <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+                            class="far fa-file-pdf text-danger"></i> Export</a>
+                </div>
+                <hr>
+            </div>
+
+            <div class="container">
+
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <img width="10%" src="../../img/logo.png" alt="">
+                        <p class="pt-0">ShopND.com</p>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <ul class="list-unstyled">
+                            <li class="text-muted">To: <span
+                                    style="color:#5d9fc5 ;">{{listBillDetail[0].userName}}</span></li>
+                            <li class="text-muted">Trinh Van Bo Street,Ha Noi City</li>
+                            <li class="text-muted">State, Viet Nam</li>
+                            <li class="text-muted"><i class="fas fa-phone"></i>&nbsp; 0848298155</li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-4">
+                        <p class="text-muted">Invoice</p>
+                        <ul class="list-unstyled">
+                            <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                                    class="fw-bold">Created Date: </span>{{listBillDetail[0]._CreatedDate}}</li>
+                            <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                                    class="fw-bold">LastModified Date:</span>{{listBillDetail[0]._LastModifiedDate}}
+                            </li>
+                            <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                                    class="me-1 fw-bold">Status:</span>&nbsp; {{listBillDetail[0].status}}<span
+                                    class="badge bg-warning text-black fw-bold"></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row my-2 mx-1 justify-content-center">
+                    <table class="table table-striped table-borderless">
+                        <thead style="background-color:#84B0CA ;" class="text-white">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Material</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Date Of Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in listBillDetail">
+                                <th>{{$index +1}}</th>
+                                <th>{{x.productName}}</th>
+                                <td> {{x.categoryName}}</td>
+                                <td> {{x.materialName}}</td>
+                                <td>{{x.sizeName}}</td>
+                                <td> {{x.colorName}}</td>
+                                <td>{{x.price}}</td>
+                                <td>{{x.quantity}}</td>
+                                <td>{{x._DateOfPayment}}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="back-to-shop">
+                    <a href="#/manager/bill">&leftarrow;<span class="text-muted">Back to shop</span></a>
+                </div>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+</div>

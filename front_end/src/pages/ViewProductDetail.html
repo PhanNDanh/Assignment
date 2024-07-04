@@ -1,0 +1,83 @@
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4"> <img id="main-image" src="../../../img/polo_img1.webp"
+                                    width="250" /> </div>
+                            <div class="thumbnail text-center">
+                                <img onclick="change_image(this)" src="../../../img/polo_img3.webp" width="70">
+                                <img onclick="change_image(this)" src="../../../img/polo_img4.webp" width="70">
+                                <img onclick="change_image(this)" src="../../../img/polo_img2.webp" width="70">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <button type="reset" class="btn btn-success">
+                                        <a style="color: #ffffff;text-decoration: none;" href="#/home/product-detail">
+                                            <i class="fa-solid fa-reply"></i>back</a></button>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-3"> <span
+                                    class="text-uppercase text-muted brand">{{ProductDetailByIdResponse.categoryName}}</span>
+                                <h5 class="text-uppercase">{{ProductDetailByIdResponse.productName}} </h5>
+                                <div class="price d-flex flex-row align-items-center">
+                                    <h5><span class="act-price">Product Detail</span></h5>
+                                </div>
+                            </div>
+                            <p class="about">Description: {{ProductDetailByIdResponse.description}}</p>
+                            <div class="sizes mt-5">
+                                <div class="d-flex">
+                                    <h6 class="text-uppercase">Color: {{ProductDetailByIdResponse.colorName}}</h6>
+                                </div>
+                                <div class="d-flex">
+                                    <h6 class="text-uppercase">Size: {{ProductDetailByIdResponse.sizeName}}</h6>
+                                </div>
+                                <div class="d-flex">
+                                    <h6 class="text-uppercase">Material: {{ProductDetailByIdResponse.materialName}}</h6>
+                                </div>
+                                <div class="d-flex">
+                                    <h6 class="text-uppercase">Price: {{ProductDetailByIdResponse.price}}</h6>
+                                </div>
+                            </div>
+                            <div class="cart mt-4 align-items-center">
+                                <button data-toggle="modal" data-target="#exampleModal"
+                                    class="btn btn-danger text-uppercase mr-2 px-4">Add to
+                                    cart</button>
+                                <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i>
+                                <!-- Modal BEGIN -->
+                                <div id="exampleModal" class="modal" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Please enter quantity
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input ng-model="quantityByCart" type="number" class="form-control">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    ng-click="addToCart()">Add</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Model END -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="container">
+    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-sm-12 col-md-10">
+                <div class="dataTables_length" id="dataTable_length">
+                    <div class="d-flex">
+                        <label>
+                            Show
+                            <select name="dataTable_length" aria-controls="dataTable"
+                                class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value="">5</option>
+                                <option value="">10</option>
+                                <option value="">15</option>
+                                <option value="">20</option>
+                            </select>
+                        </label>
+                        <div style="margin-left: 15px;">
+                            <label for="">Price &nbsp;</label>
+                            <select ng-model="selectedPriceRange" ng-change="onPriceChange()" name="dataTable_length"
+                                aria-controls="dataTable"
+                                class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value="0-10000"></option>
+                                <option value="50-100">50-100</option>
+                                <option value="100-500">100-500</option>
+                                <option value="500-1000">500-1000</option>
+                                <option value="1000-2000">1000-2000</option>
+                                <option value="2000-10000">2000-10000</option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15px;">
+                            <label>Style &nbsp;</label>
+                            <select ng-model="categoryName" ng-change="onCategoryChange()" name="dataTable_length"
+                                aria-controls="dataTable"
+                                class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value=""></option>
+                                <option ng-repeat="x in listCategory" value="{{x.categoryName}}">{{x.categoryName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15px;">
+                            <label>Size &nbsp;</label>
+                            <select ng-model="sizeName" ng-change="onSizeChange()" name="dataTable_length"
+                                aria-controls="dataTable"
+                                class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value=""></option>
+                                <option ng-repeat="x in listSize" value="{{x.sizeName}}">{{x.sizeName}}</option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15px;">
+                            <label>Color &nbsp;</label>
+                            <select ng-model="colorName" ng-change="onColorChange()" name="dataTable_length"
+                                aria-controls="dataTable"
+                                class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value=""></option>
+                                <option ng-repeat="x in listColor" value="{{x.colorName}}">{{x.colorName}}</option>
+                            </select>
+                        </div>
+                        <div style="margin-left: 15px;">
+                            <label for="">Material &nbsp;</label>
+                            <select ng-model="materialName" ng-change="onMaterialChange()" name="dataTable_length"
+                                aria-controls="dataTable"
+                                class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value=""></option>
+                                <option ng-repeat="x in listMaterial" value="{{x.materialName}}">{{x.materialName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2">
+                <div id="dataTable_filter" class="dataTables_filter">
+                    <label>
+                        Search
+                        <input ng-model="productName" ng-change="onNameChange()" type="search"
+                            class="form-control form-control-sm" aria-controls="dataTable">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6" ng-repeat="x in listProductDetail">
+            <div class="product-grid">
+                <div class="product-image" style="height: 260px;">
+                    <a href="#" class="image">
+                        <img class="pic-1" src="../../../img/polo_img1.webp">
+                        <img class="pic-2" src="../../../img/polo_img7.webp">
+                    </a>
+                    <span class="product-sale-label">sale!</span>
+                    <ul class="social">
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                        <li><a href="#" data-tip="Add to wishlist"><i class="fa fa-heart"></i></a></li>
+                    </ul>
+                    <div class="product-rating">
+                        <ul class="rating">
+                            <li class="fas fa-star"></li>
+                            <li class="fas fa-star"></li>
+                            <li class="fas fa-star"></li>
+                            <li class="far fa-star"></li>
+                            <li class="far fa-star"></li>
+                        </ul>
+                        <a class="add-to-cart" href="#"> ADD TO CART </a>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#/product-detail/{{x.id}}">{{x.productName}}
+                            {{x.categoryName}}
+                            {{x.colorName}} {{x.sizeName}}</a></h3>
+                    <div class="price"><span>$28.00</span>{{x.price}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phân trang BEGIN-->
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-sm-12 col-md-5">
+            <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
+                Showing {{PageProperties.startIndex}} to {{PageProperties.endIndex}} of
+                {{PageProperties.totalElements}} elements
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-7">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" ng-click="prePage()" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link">{{PageProperties.currentPage}}<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item "><a class="page-link">/</a></li>
+                    <li class="page-item"><a class="page-link" ng-click="lastPage()">{{PageProperties.totalPages}}</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" ng-click="nextPage()">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    <!-- Phân trang END-->
+</div>

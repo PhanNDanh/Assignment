@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="../../css/manage-bill.css">
+<section class="intro">
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                                    style="position: relative; height: 700px">
+                                    <table class="table table-hover mb-0">
+                                        <thead style="background-color: #4f80c9;">
+                                            <tr>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Code</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Created Date</th>
+                                                <th scope="col">Last Modified Date</th>
+                                                <th scope="col">Date of Payment</th>
+                                                <th scope="col">Total Money</th>
+                                                <th scope="col">View</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="x in listBill">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{x.code}}</td>
+                                                <td>{{x.status}}</td>
+                                                <td>{{x._CreatedDate}}</td>
+                                                <td>{{x._LastModifiedDate}}</td>
+                                                <td>{{x._DateOfPayment}}</td>
+                                                <td>{{x.totalMoney}}</td>
+                                                <td>
+                                                    <a href="#/manager/bill-detail/{{x.code}}">
+                                                        Detail
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

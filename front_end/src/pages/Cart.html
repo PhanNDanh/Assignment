@@ -1,0 +1,130 @@
+<link href="/css/cart.css" rel="stylesheet">
+<div class="box">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col">
+                            <h4><b>Shopping Cart</b></h4>
+                        </div>
+                        <div class="col align-self-center text-right text-muted">{{listProducts.length}} items</div>
+                    </div>
+                </div>
+                <div class="row border-top border-bottom" ng-repeat="x in listProducts">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="../../../img/polo_img1.webp"></div>
+                        <div class="col">
+                            <div class="row text-muted">{{x.name}}</div>
+                            <div class="row">{{x.price}}</div>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-light" ng-click="deleteOne($index)">-</button>
+                            <button class="btn btn-white" data-toggle="modal"
+                                data-target="#exampleModal2">{{x.quantity}}</button>
+                            <!-- Modal update quantity BEGIN -->
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Please enter quantity
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input ng-model="x.quantityUpdate" type="number" class="form-control">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                ng-click="updateToCart($index,x.quantityUpdate)">Save</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Model END -->
+                            <button class="btn btn-light" ng-click="addOne($index)">+</button>
+                        </div>
+                        <div class="col"> {{x.intoMoney}} &nbsp; &nbsp;
+                            <button data-toggle="modal" data-target="#exampleModal" class="btn btn-light">
+                                &nbsp; <i class="fa-solid fa-trash-can" style="color: #111212;"></i>
+                            </button>
+                        </div>
+                        <!-- Modal delete BEGIN -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure you
+                                            want to delete?
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button ng-click="deleteFromCart($index)" type="button" class="btn btn-danger"
+                                            data-dismiss="modal">Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Model END -->
+                    </div>
+                </div>
+                <div class="back-to-shop">
+                    <a href="#home">&leftarrow;<span class="text-muted">Back to shop</span></a>
+                </div>
+            </div>
+            <div class="col-md-4 summary">
+                <div>
+                    <h5><b>Summary</b></h5>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">ITEMS 3</div>
+                    <div class="col text-right">{{totalMoney}}</div>
+                </div>
+                <form>
+                    <p>SHIPPING</p>
+                    <select>
+                        <option class="text-muted">Standard-Delivery-5.00</option>
+                    </select>
+                    <p>GIVE CODE</p>
+                    <input id="code" placeholder="Enter your code">
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">TOTAL PRICE</div>
+                    <div class="col text-right">137.00</div>
+                </div>
+                <button ng-click="checkOut()" class="btnCheckOut">CHECKOUT</button>
+                <!-- Modal -->
+                <div id="resetPasswordModal" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Are you sure you want to order the product?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button ng-click="order()" type="button" class="btn btn-primary">confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
